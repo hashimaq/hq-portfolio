@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-canvas: var(--canvas);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-raised: var(--raised);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-rim: var(--rim);
+  --color-ink: #07070c;
+  --color-paper: #f6f2ea;
+}
+
+:root {
+  --canvas: #f6f2ea;
+  --fg: #14141c;
+  --muted: #5c5868;
+  --line: #e4dfd4;
+  --raised: #ffffff;
+  --accent: #6d3ef0;
+  --accent-fg: #f8f6ff;
+  --rim: #8b5cff;
+}
+
+html.dark {
+  --canvas: #07070c;
+  --fg: #f3f1ec;
+  --muted: #9a96a8;
+  --line: #2e2e3a;
+  --raised: #12121a;
+  --accent: #8b5cff;
+  --accent-fg: #f8f6ff;
+  --rim: #c4b5fd;
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
